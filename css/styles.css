@@ -19,7 +19,7 @@ body {
     border: 2px solid #A67420;
     padding: 14px 24px;
     margin: 0 auto;
-    width: 900px;
+    width: 852px;
     text-align: left;
 }
 
@@ -429,7 +429,7 @@ ul li {
     text-align: center;
 }
 
-.quote-author{
+.quote-author {
     color: #D0973A;
     font-weight: bold;
     text-align: right;
