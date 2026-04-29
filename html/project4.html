@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition &amp; Bodybuilding Tools</title>
+    <link rel="stylesheet" href="../css/project4.css">
+</head>
+<body>
+
+    <div class="top-nav">
+        <a href="../index.html">Home</a>
+        <a href="../html/project2.html">Project 2</a>
+        <a href="../html/project3.html">Project 3</a>
+        <a href="project4.html" class="current">Project 4</a>
+    </div>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Nutrition &amp; Bodybuilding Tools</h1>
+            <p class="subtitle">Interactive calculators used for my actual cut &mdash; ICT280 Project 4</p>
+        </div>
+
+        <section class="box box-accent">
+            <h2>Welcome Back</h2>
+
+            <p>
+                For Project 3, I wrote about nutrition and bodybuilding. For Project 4,
+                I am taking that same topic one step further by building two interactive
+                tools inspired by my actual coaching plan and weekly split. As an
+                <strong>Application Developer apprentice</strong>, I am learning how to
+                combine <strong>HTML</strong>, <strong>CSS</strong>, and
+                <strong>JavaScript</strong> &mdash; the three pieces every front-end
+                application uses.
+            </p>
+
+            <p>
+                Below you will find a cut progress estimator where a user can enter
+                their current weight and goal weight to get a rough estimate/timeline. I also
+                included my weekly workout day picker based on the actual split I am
+                currently running.
+            </p>
+
+            <figure class="image-block">
+                <img
+                    src="../images/bodybuilding.jpg"
+                    alt="A bodybuilder demonstrating a muscular physique under gym lighting"
+                >
+                <figcaption class="attribution">
+                    Photo By <a href="https://www.pexels.com/photo/man-in-black-reebok-shoes-about-to-carry-barbell-949129/" >Victor Freitas</a>
+                    on <a href="https://www.pexels.com/" style="color: #87BF5D;">Pexels</a>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section class="box">
+            <h2>Tool 1: Cut Progress Estimator</h2>
+
+            <p>
+                This tool lets a user enter their current weight and goal weight to get
+                a simple estimate for how long a cut might take at around
+                <strong>2.5 pounds per week</strong>. That pace is based on my own
+                current coaching plan, so this is more of a learning tool than a
+                universal recommendation.
+            </p>
+
+            <div class="plan-summary">
+                <p><strong>Example daily target from my current cut:</strong> 1,875 calories</p>
+                <p><strong>Example macros:</strong> 183g protein &nbsp;|&nbsp; 177g carbs &nbsp;|&nbsp; 45g fat</p>
+                <p><strong>My example cut:</strong> 225 lbs &nbsp;&rarr;&nbsp; 185 lbs</p>
+                <p><strong>Example pace:</strong> about 2.5 lbs lost per week</p>
+            </div>
+
+            <form id="cut-form" onsubmit="return false;">
+                <div class="form-row">
+                    <label for="user-name" class="form-label">Your Name</label>
+                    <input
+                        type="text"
+                        id="user-name"
+                        name="user-name"
+                        class="form-input"
+                        placeholder="Alexis"
+                    >
+                </div>
+
+                <div class="form-row">
+                    <label for="current-weight" class="form-label">Current Weight (lbs)</label>
+                    <input
+                        type="number"
+                        id="current-weight"
+                        name="current-weight"
+                        class="form-input"
+                        placeholder="223"
+                        min="80"
+                        max="500"
+                        step="0.5"
+                    >
+                </div>
+
+                <div class="form-row">
+                    <label for="goal-weight" class="form-label">Goal Weight (lbs)</label>
+                    <input
+                        type="number"
+                        id="goal-weight"
+                        name="goal-weight"
+                        class="form-input"
+                        placeholder="185"
+                        min="80"
+                        max="500"
+                        step="0.5"
+                    >
+                </div>
+
+                <button type="button" id="track-btn" class="btn">Estimate My Cut</button>
+                <button type="button" id="reset-btn" class="btn btn-secondary">Reset</button>
+            </form>
+
+            <div id="cut-result" class="result-box" aria-live="polite">
+                <p class="result-empty">Enter your name, current weight, and goal weight to see your estimate.</p>
+            </div>
+
+            <h3>How the Estimator Works</h3>
+            <ol>
+                <li><strong>Weight to lose</strong> = current weight &minus; goal weight.</li>
+                <li><strong>Weeks left</strong> = pounds to lose &divide; 2.5 lbs per week.</li>
+                <li><strong>Goal date</strong> is estimated by adding those weeks to today.</li>
+                <li><strong>Macros shown below</strong> are an example from my current coaching plan, not a custom plan for every user.</li>
+            </ol>
+
+            <p class="small-note">
+                The pace of 2.5 lbs per week is aggressive and comes from my own current
+                coaching plan. If someone is planning a real cut, they should work with
+                a qualified coach or healthcare professional instead of copying this exactly.
+            </p>
+        </section>
+
+        <section class="box">
+            <h2>Tool 2: My Weekly Workout Split</h2>
+
+            <figure class="image-block">
+                <img
+                    src="../images/dumbells.jpg"
+                    alt="A rack of metal dumbbells lined up in a gym"
+                >
+                <figcaption class="attribution">
+                    Photo by <a href="https://www.pexels.com/photo/silver-dumbbells-on-rack-4164763/"  target="_blank" rel="noopener">Ivan s on Pexels</a> 
+                    on <a href="https://www.pexels.com/" target="_blank" rel="noopener">Pexels</a>
+                </figcaption>
+            </figure>
+
+            <p>
+                This is the actual split I am running right now. Three lifting sessions
+                with cardio six days a week, alternating <strong>30 minutes</strong>
+                on lifting days and <strong>15 minutes</strong> on the days in between.
+                Sunday is a full rest day.
+            </p>
+
+            <p>
+                Pick any day from the dropdown to see exactly what I am doing that day.
+            </p>
+
+            <form id="workout-form" onsubmit="return false;">
+                <div class="form-row">
+                    <label for="workout-day" class="form-label">Pick a Day</label>
+                    <select id="workout-day" name="workout-day" class="form-input">
+                        <option value="">-- Choose a day --</option>
+                        <option value="monday">Monday &mdash; Session 1</option>
+                        <option value="tuesday">Tuesday &mdash; Cardio</option>
+                        <option value="wednesday">Wednesday &mdash; Legs</option>
+                        <option value="thursday">Thursday &mdash; Cardio</option>
+                        <option value="friday">Friday &mdash; Session 3</option>
+                        <option value="saturday">Saturday &mdash; Cardio</option>
+                        <option value="sunday">Sunday &mdash; Rest</option>
+                    </select>
+                </div>
+
+                <button type="button" id="workout-btn" class="btn">Show The Plan</button>
+            </form>
+
+            <div id="workout-result" class="result-box" aria-live="polite">
+                <p class="result-empty">Pick a day from the dropdown to see the plan.</p>
+            </div>
+        </section>
+
+        <section class="box box-accent">
+            <h2>What I Learned in Project 4</h2>
+
+            <p>
+                Project 4 was the first time I had to make my page actually
+                <em>do</em> something. Up until now, my projects were static &mdash;
+                they looked nice but they did not react to anything. Adding JavaScript
+                changed that completely.
+            </p>
+
+            <h3>New Concepts I Used</h3>
+            <ul>
+                <li><strong>Event listeners</strong> &mdash; the page waits for a button click before doing anything.</li>
+                <li><strong>getElementById</strong> &mdash; how I grab values out of the form fields.</li>
+                <li><strong>innerHTML</strong> &mdash; how the script writes new content into the result box.</li>
+                <li><strong>If / else if statements</strong> &mdash; the estimator shows different messages depending on the size of the cut.</li>
+                <li><strong>Date objects</strong> &mdash; the tracker projects a goal date by adding weeks to today’s date.</li>
+                <li><strong>Objects and arrays</strong> &mdash; the workout split is stored as a structured object with one entry per day.</li>
+                <li><strong>Loops</strong> &mdash; the workout picker uses a for-loop to print every exercise into a table.</li>
+                <li><strong>Media queries</strong> &mdash; the page rearranges itself for tablets and phones instead of forcing one fixed layout.</li>
+            </ul>
+
+            <p>
+                Every one of those concepts is something I will keep using in my
+                apprenticeship. Real applications are full of forms, buttons, and
+                conditional logic &mdash; just at a much bigger scale. Starting small
+                like this is how I am building toward that.
+            </p>
+
+            <p>
+                Want to see where I started? Check out
+                <a href="../html/project3.html">Project 3</a>
+                for the static version of this same topic.
+            </p>
+        </section>
+
+    </div>
+
+    <div class="container">
+        <div class="site-footer">
+            <div class="footer-nav">
+                <a href="../index.html">Home</a>
+                <a href="../html/project2.html">Project 2</a>
+                <a href="../html/project3.html">Project 3</a>
+                <a href="project4.html">Project 4</a>
+            </div>
+            <p>Nutrition &amp; Bodybuilding Tools &mdash; by Alexis Barraza</p>
+            <p>ICT280 Intro to Web Development &mdash; Project 4</p>
+        </div>
+    </div>
+
+    <script src="../javascript/script.js"></script>
+
+</body>
+</html>
